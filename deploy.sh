@@ -5,3 +5,7 @@ docker build -t /stephengrider/multi-worker -f ./worker/Dockerfile ./worker
 docker push /stephengrider/multi-client
 docker push /stephengrider/multi-server
 docker push /stephengrider/multi-worker
+
+kubectl apply -f k8s
+
+kubectl set image deployment/server-deployment server=stephengrider/multi-server
